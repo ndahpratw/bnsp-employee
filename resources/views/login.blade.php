@@ -72,6 +72,12 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            alert('Selamat datang di halaman login \n Email : admin@gmail.com | Password : password');
+        });
+    </script>
+
     <!-- Eksternal JS -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
