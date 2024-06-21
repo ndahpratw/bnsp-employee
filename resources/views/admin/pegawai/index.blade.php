@@ -35,12 +35,12 @@
                         <div class="d-flex align-items-center justify-content-between m-3">
                             <h5 class="card-title">Total : {{ count($data_pegawai) }} Pegawai</h5>
                             <a href="{{ route('pegawai.create') }}" class="btn btn-primary">
-                                <i class="bi bi-plus"></i> Tambah Data
+                                <i class="bi bi-plus"></i> Data Baru
                             </a>
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table datatable" id="pegawai">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
@@ -50,7 +50,7 @@
                                         <th>Gender</th>
                                         <th>Jabatan</th>
                                         <th>Bergabung Pada</th>
-                                        <th>Aksi</th>
+                                        <th class="d-flex gap-2">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,8 +66,14 @@
                                             </td>
                                             <td>{{ $item->nama_lengkap}}</td>
                                             <td>{{ $item->NIP }}</td>
-                                            <td>{{ $item->jenis_kelamin }}</td>
                                             <td>
+                                                @if ($item->jenis_kelamin == 'L')
+                                                    Laki - Laki
+                                                @else
+                                                    Perempuan
+                                                @endif
+                                            </td>
+                                            <td class="d-flex gap-2">
                                                 @if($item->peran == 'Kepala Sekolah')
                                                     <span class="badge rounded-pill bg-danger">{{ $item->peran }}</span>
                                                 @elseif($item->peran == 'Administrasi')

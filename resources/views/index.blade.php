@@ -80,7 +80,11 @@
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="{{ asset('assets/img/profile-pegawai/'.$kepala_sekolah->profile) }}" class="img-fluid animated" alt="{{ $kepala_sekolah->profile }}">
+                    @if ($kepala_sekolah->profile != null)
+                      <img src="{{ asset('assets/img/profile-pegawai/'.$kepala_sekolah->profile) }}" class="img-fluid animated" alt="{{ $kepala_sekolah->profile }}">
+                    @else
+                      <img src="{{ asset('assets/img/logo/profile.jpg') }}" alt="profile" class="img-fluid animated">
+                    @endif
                     <div class="carousel-caption d-none d-md-block">
                         <h1>{{ $kepala_sekolah->nama_lengkap }}</h1>
                         <p><span class="badge rounded-pill bg-danger">{{ $kepala_sekolah->peran }}</span></p>

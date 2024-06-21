@@ -24,7 +24,7 @@
   <link href="{{  asset('vendor/quill/quill.snow.css') }}" rel="stylesheet">
   <link href="{{  asset('vendor/quill/quill.bubble.css') }}" rel="stylesheet">
   <link href="{{  asset('vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-
+  <link href="{{ asset('assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{{  asset('css/style.css') }}" rel="stylesheet">
@@ -60,6 +60,7 @@
   <script src="{{ asset('vendor/chart.js/chart.umd.js')}}"></script>
   <script src="{{ asset('vendor/echarts/echarts.min.js')}}"></script>
   <script src="{{ asset('vendor/quill/quill.min.js')}}"></script>
+  <script src="{{ asset('assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
   <script src="{{ asset('vendor/tinymce/tinymce.min.js')}}"></script>
   <script src="{{ asset('vendor/php-email-form/validate.js')}}"></script>
 
