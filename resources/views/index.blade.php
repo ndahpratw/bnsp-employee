@@ -85,7 +85,7 @@
                     @else
                       <img src="{{ asset('assets/img/logo/profile.jpg') }}" alt="profile" class="img-fluid animated">
                     @endif
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption">
                         <h1>{{ $kepala_sekolah->nama_lengkap }}</h1>
                         <p><span class="badge rounded-pill bg-danger">{{ $kepala_sekolah->peran }}</span></p>
                     </div>
@@ -97,7 +97,7 @@
                         @else
                             <img src="{{ asset('assets/img/logo/profile.jpg') }}" alt="profile" class="img-fluid animated">
                         @endif
-                        <div class="carousel-caption d-none d-md-block">
+                        <div class="carousel-caption">
                             <h1>{{ $item->nama_lengkap }}</h1>
                             <p>
                                 @if($item->peran == 'Administrasi')
