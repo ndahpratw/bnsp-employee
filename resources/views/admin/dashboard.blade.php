@@ -116,10 +116,6 @@
                                                     beginAtZero: true
                                                 }
                                             }
-                                            animation: {
-                                                duration: 2000, // Durasi animasi dalam milidetik
-                                                easing: 'easeInOutBounce' // Jenis easing animasi
-                                            }
                                         }
                                     });
                                 });
