@@ -25,8 +25,8 @@ class PegawaiController extends Controller
         $request->validate([
             'nama_lengkap' => 'required',
             'NIK' => 'required|digits:16',
-            'email' => 'required|email',
-            'no_telepon' => 'required',
+            'email' => 'required|email|unique:pegawais',
+            'no_telepon' => 'required|digits:13',
             'alamat' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -37,7 +37,7 @@ class PegawaiController extends Controller
             'pendidikan_terakhir' => 'required',
             'nama_instansi' => 'required',
             'jurusan' => 'required',
-            'tahun_lulus' => 'required',
+            'tahun_lulus' => 'required|digits:4|digits:4',
             'bergabung' => 'required',
             'peran' => 'required',
         ]);
@@ -73,9 +73,9 @@ class PegawaiController extends Controller
 
 
         if ($pegawai_baru->save()) {
-            return redirect('pegawai.index')->with('success', 'Data berhasil disimpan!');
+            return redirect(route('pegawai.index'))->with('success', 'Data berhasil disimpan!');
         } else {
-            return redirect('pegawai.index')->with('error', 'Gagal menyimpan data');
+            return redirect(route('pegawai.index'))->with('error', 'Gagal menyimpan data');
         }
     }
 
@@ -98,7 +98,7 @@ class PegawaiController extends Controller
             'nama_lengkap' => 'required',
             'NIK' => 'required|digits:16',
             'email' => 'required|email',
-            'no_telepon' => 'required',
+            'no_telepon' => 'required|digits:13',
             'alamat' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -109,7 +109,7 @@ class PegawaiController extends Controller
             'pendidikan_terakhir' => 'required',
             'nama_instansi' => 'required',
             'jurusan' => 'required',
-            'tahun_lulus' => 'required',
+            'tahun_lulus' => 'required|digits:4',
             'bergabung' => 'required',
             'peran' => 'required',
         ]);

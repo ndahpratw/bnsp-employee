@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.admin.main')
 
 @section('content')
     <div class="pagetitle">
@@ -85,14 +85,15 @@
                                 </div>
                                 <div class="col-md-4 mt-2">
                                     <label for="profile" class="form-label">Profile </label>
-                                    <input type="file" name="profile" class="form-control @error('profile') is-invalid @enderror shadow-none" id="profile" value="{{ old('profile') }}" accept="image/*">
+                                    <input type="file" name="profile" class="form-control @error('profile') is-invalid @enderror shadow-none" id="profileInput" value="{{ old('profile') }}" accept="image/*">
+                                    <img id="previewProfile" class="my-1" style="width: 100px">
                                     @error('profile') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div> 
                                     @enderror
                                 </div>
-                                <div class="col-md-6 mt-2">
+                                <div class="col-md-4 mt-2">
                                     <label for="agama" class="form-label">Agama <span class="text-danger">*</span></label>
                                     <select class="form-select @error('agama') is-invalid @enderror" id="agama" aria-label="Default select example" name="agama">
                                         <option selected disabled>Pilih Agama</option>
@@ -109,8 +110,8 @@
                                     </div> 
                                     @enderror
                                 </div>
-                                <div class="col-md-6 mt-2">
-                                    <label for="status_menikah" class="form-label">Tempat Lahir <span class="text-danger">*</span></label>
+                                <div class="col-md-4 mt-2">
+                                    <label for="status_menikah" class="form-label">Status Menikah <span class="text-danger">*</span></label>
                                     <select class="form-select @error('status_menikah') is-invalid @enderror" id="status_menikah" aria-label="Default select example" name="status_menikah">
                                         <option selected disabled>Pilih Status Menikah</option>
                                         <option value="belum menikah" {{ old('status_menikah') == 'belum menikah' ? 'selected' : '' }}>Belum Menikah</option>
@@ -249,13 +250,22 @@
                                 </div>
                             </div>
                         </form>
-
-
-
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
+@endsection
+@section('scripts')
+<script>
+$(document).ready(function() {
+    $('#profileInput').on('change', function(event) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#previewProfile').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
+});
+    </script>
 @endsection

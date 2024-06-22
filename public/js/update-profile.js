@@ -1,8 +1,10 @@
-document.getElementById('profileInput').addEventListener('change', function(event) {
-    var reader = new FileReader();
-    reader.onload = function() {
-        var output = document.getElementById('profile');
-        output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
+$(document).ready(function() {
+    $('#profileInput').on('change', function(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = $('#profile');
+            output.attr('src', reader.result);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    });
 });
