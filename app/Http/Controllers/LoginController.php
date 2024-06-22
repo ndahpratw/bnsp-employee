@@ -9,17 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function autentikasi(Request $request) {
-
-        // dd($request->all());
-
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
- 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
             return redirect('/dashboard');
         } else {
             return redirect('/login')->with('error', 'Invalid Email and Password! Try Again!');
@@ -27,7 +22,6 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request) {
-
         if (Auth::check()){
             Auth::logout();
         } return redirect('/');

@@ -18,7 +18,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body pt-3">
-                        <h4 class="mx-2 mt-2 my-1"> Form Tambah Pegawai Baru </h4>
+                        <h4 class="mx-2 mt-2 my-1"> Form Edit Data Pegawai </h4>
                         <p class="text-danger mx-2"><span>*</span> : <b>wajib diisi</b></p>
                         <form action="{{ route('pegawai.update', $detail_pegawai->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -268,5 +268,5 @@
     </section>
 @endsection
 @section('scripts')
-    <script src="{{ asset('js/update-profile.js') }}"></script>
+    <script src="{{ asset('js/profile.js') }}"></script>
 @endsection

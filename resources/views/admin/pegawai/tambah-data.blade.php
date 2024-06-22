@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-md-4 mt-2">
                                     <label for="profile" class="form-label">Profile </label>
-                                    <input type="file" name="profile" class="form-control @error('profile') is-invalid @enderror shadow-none" id="profileInput" value="{{ old('profile') }}" accept="image/*">
+                                    <input type="file" name="profile" class="form-control @error('profile') is-invalid @enderror shadow-none" id="addProfile" value="{{ old('profile') }}" accept="image/*">
                                     <img id="previewProfile" class="my-1" style="width: 100px">
                                     @error('profile') 
                                     <div class="invalid-feedback">
@@ -257,15 +257,5 @@
     </section>
 @endsection
 @section('scripts')
-<script>
-$(document).ready(function() {
-    $('#profileInput').on('change', function(event) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#previewProfile').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    });
-});
-    </script>
+    <script src="{{ asset('js/profile.js') }}"></script>
 @endsection
