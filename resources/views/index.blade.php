@@ -11,7 +11,7 @@
           <h1>SEKOLAH DASAR A</h1>
           <h2>Bersama menciptakan insan cerdas dan cendekia</h2>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <div class="col-lg-6 order-1 order-lg-2 hero-img d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200" >
             <div id="carouselExampleIndicators" class="carousel slide w-75" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
