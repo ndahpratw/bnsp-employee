@@ -29,6 +29,7 @@
                                 <div class="col-md-12 mt-2">
                                     <label for="nama_lengkap" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
                                     <input type="text" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror shadow-none" id="nama_lengkap" value="{{ $detail_pegawai->nama_lengkap }}" placeholder="Masukkan nama lengkap">
+                                    <p id="nama_error" class="text-danger" ></p>
                                     @error('nama_lengkap') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -38,6 +39,7 @@
                                 <div class="col-md-6 mt-2">
                                     <label for="NIK" class="form-label">NIK <span class="text-danger">*</span></label>
                                     <input type="number" name="NIK" class="form-control @error('NIK') is-invalid @enderror shadow-none" id="NIK" value="{{ $detail_pegawai->NIK }}" placeholder="Masukkan nomor induk penduduk">
+                                    <p id="NIK_error" class="text-danger" ></p>
                                     @error('NIK') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -56,6 +58,7 @@
                                 <div class="col-md-4 mt-2">
                                     <label for="tempat_lahir" class="form-label">Tempat Lahir <span class="text-danger">*</span></label>
                                     <input type="text" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror shadow-none" id="tempat_lahir" value="{{ $detail_pegawai->tempat_lahir }}" placeholder="Masukkan tempat lahir">
+                                    <p id="tempat_lahir_error" class="text-danger" ></p>
                                     @error('tempat_lahir') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -65,6 +68,7 @@
                                 <div class="col-md-4 mt-2">
                                     <label for="tanggal_lahir" class="form-label">Tanggal Lahir <span class="text-danger">*</span></label>
                                     <input type="date" name="tanggal_lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror shadow-none" id="tanggal_lahir" value="{{ $detail_pegawai->tanggal_lahir }}">
+                                    <p id="tanggal_lahir_error" class="text-danger" ></p>
                                     @error('tanggal_lahir') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -78,6 +82,7 @@
                                         <option value="L" {{ $detail_pegawai->jenis_kelamin == 'L' ? 'selected' : '' }}>Laki - Laki</option>
                                         <option value="P" {{ $detail_pegawai->jenis_kelamin == 'P' ? 'selected' : '' }}>Perempuan</option>
                                       </select>
+                                      <p id="jenis_kelamin_error" class="text-danger" ></p>
                                     @error('jenis_kelamin') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -111,6 +116,7 @@
                                         <option value="BUDHA" {{ $detail_pegawai->agama == 'BUDHA' ? 'selected' : '' }}>Budha</option>
                                         <option value="Konghucu" {{ $detail_pegawai->agama == 'Konghucu' ? 'selected' : '' }}>Konghucu</option>
                                     </select>
+                                    <p id="agama_error" class="text-danger" ></p>
                                     @error('agama') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -124,6 +130,7 @@
                                         <option value="belum menikah" {{ $detail_pegawai->status_menikah == 'belum menikah' ? 'selected' : '' }}>Belum Menikah</option>
                                         <option value="sudah menikah" {{ $detail_pegawai->status_menikah == 'sudah menikah' ? 'selected' : '' }}>Sudah Menikah</option>
                                       </select>
+                                      <p id="status_menikah_error" class="text-danger" ></p>
                                     @error('status_menikah') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -139,6 +146,7 @@
                                         <option value="Administrasi" {{ $detail_pegawai->peran == 'Administrasi' ? 'selected' : '' }}>Administrasi</option>
                                         <option value="Security" {{ $detail_pegawai->peran == 'Security' ? 'selected' : '' }}>Security</option>
                                     </select>
+                                    <p id="peran_error" class="text-danger" ></p>
                                     @error('peran') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -157,6 +165,7 @@
                                         <option value="PPPK" {{ $detail_pegawai->status_kepegawaian == 'PPPK' ? 'selected' : '' }}>PPPK</option>
                                         <option value="Sukwan" {{ $detail_pegawai->status_kepegawaian == 'Sukwan' ? 'selected' : '' }}>Sukwan</option>
                                     </select>
+                                    <p id="status_kepegawaian_error" class="text-danger" ></p>
                                     @error('status_kepegawaian') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -166,6 +175,7 @@
                                 <div class="col-md-4 mt-2">
                                     <label for="bergabung" class="form-label"> Bergabung <span class="text-danger">*</span></label>
                                     <input type="date" name="bergabung" class="form-control @error('bergabung') is-invalid @enderror shadow-none" id="bergabung" value="{{ $detail_pegawai->bergabung }}">
+                                    <p id="bergabung_error" class="text-danger" ></p>
                                     @error('bergabung') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -176,7 +186,7 @@
                                 <p class="text-primary mt-5"> Informasi Pendidikan </p>
                                 <div class="col-md-3 mt-2">
                                     <label for="pendidikan_terakhir" class="form-label">Pendidikan Terakhir <span class="text-danger">*</span></label>
-                                    <select class="form-select @error('pendidikan_terakhir') is-invalid @enderror" aria-label="Default select example" name="pendidikan_terakhir">
+                                    <select class="form-select @error('pendidikan_terakhir') is-invalid @enderror" aria-label="Default select example" name="pendidikan_terakhir" id="pendidikan_terakhir">
                                         <option selected disabled>Pilih Pendidikan Terakhir</option>
                                         <option value="TIDAK SEKOLAH" {{ $detail_pegawai->pendidikan_terakhir == 'TIDAK SEKOLAH' ? 'selected' : '' }}>Tidak Sekolah</option>
                                         <option value="SD SEDERAJAT" {{ $detail_pegawai->pendidikan_terakhir == 'SD SEDERAJAT' ? 'selected' : '' }}>SD Sederajat</option>
@@ -188,6 +198,7 @@
                                         <option value="S2" {{ $detail_pegawai->pendidikan_terakhir == 'S2' ? 'selected' : '' }}>S2</option>
                                         <option value="S3" {{ $detail_pegawai->pendidikan_terakhir == 'S3' ? 'selected' : '' }}>S3</option>
                                     </select>
+                                    <p id="pendidikan_terakhir_error" class="text-danger" ></p>
                                     @error('pendidikan_terakhir') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -197,6 +208,7 @@
                                 <div class="col-md-3 mt-2">
                                     <label for="nama_instansi" class="form-label">Nama Instansi <span class="text-danger">*</span></label>
                                     <input type="text" name="nama_instansi" class="form-control @error('nama_instansi') is-invalid @enderror shadow-none" id="nama_instansi" value="{{ $detail_pegawai->nama_instansi }}" placeholder="Masukkan nama instansi">
+                                    <p id="nama_instansi_error" class="text-danger" ></p>
                                     @error('nama_instansi') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -206,6 +218,7 @@
                                 <div class="col-md-3 mt-2">
                                     <label for="jurusan" class="form-label">Jurusan <span class="text-danger">*</span></label>
                                     <input type="text" name="jurusan" class="form-control @error('jurusan') is-invalid @enderror shadow-none" id="jurusan" value="{{ $detail_pegawai->jurusan }}" placeholder="Masukkan nama jurusan">
+                                    <p id="jurusan_error" class="text-danger" ></p>
                                     @error('jurusan') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -215,6 +228,7 @@
                                 <div class="col-md-3 mt-2">
                                     <label for="tahun_lulus" class="form-label">Tahun Lulus <span class="text-danger">*</span></label>
                                     <input type="number" name="tahun_lulus" class="form-control @error('tahun_lulus') is-invalid @enderror shadow-none" id="tahun_lulus" value="{{ $detail_pegawai->tahun_lulus }}" placeholder="Masukkan tahun lulus">
+                                    <p id="tahun_lulus_error" class="text-danger" ></p>
                                     @error('tahun_lulus') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -226,6 +240,7 @@
                                 <div class="col-md-4 mt-2">
                                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror shadow-none" id="email" value="{{ $detail_pegawai->email }}" placeholder="Masukkan alamat email">
+                                    <p id="email_error" class="text-danger" ></p>
                                     @error('email') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -235,6 +250,7 @@
                                 <div class="col-md-4 mt-2">
                                     <label for="no_telepon" class="form-label">No Telepon <span class="text-danger">*</span></label>
                                     <input type="number" name="no_telepon" class="form-control @error('no_telepon') is-invalid @enderror shadow-none" id="no_telepon" value="{{ $detail_pegawai->no_telepon }}" placeholder="Contoh : 6282.............">
+                                    <p id="telepon_error" class="text-danger" ></p>
                                     @error('no_telepon') 
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -244,6 +260,7 @@
                                 <div class="col-md-4 mt-2">
                                     <label for="alamat" class="form-label">Alamat <span class="text-danger">*</span></label>
                                     <textarea name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror shadow-none" cols="1" rows="1" > {{ $detail_pegawai->alamat }} </textarea>
+                                    <p id="alamat_error" class="text-danger" ></p>
                                     @error('alamat') 
                                     <div class="invalid-feedback">
                                         {{ $message }}

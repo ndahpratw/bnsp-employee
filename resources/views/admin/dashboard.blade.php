@@ -205,7 +205,6 @@
                                 });
                             </script>
                             <!-- End Bar CHart -->
-
                         </div>
                     </div>
                 </div>

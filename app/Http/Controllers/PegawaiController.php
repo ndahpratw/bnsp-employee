@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 class PegawaiController extends Controller
 {
+    // menampilkan data
     public function index() {
         $no = 1;
         $title = 'Data Pegawai';
@@ -15,33 +16,38 @@ class PegawaiController extends Controller
         return view('admin.pegawai.index', compact('no', 'title', 'data_pegawai'));
     }
 
+    // menampilkan form tambah data pegawai
     public function create() {
-        $title = 'Data Pegawai / Staff';
+        $title = 'Data Pegawai | Staff';
         $sub_title = 'Tambah Data';
         return view('admin.pegawai.tambah-data', compact('title', 'sub_title'));
     }
 
+    // menyimpan data baru
     public function store(Request $request) {
-        $request->validate([
-            'nama_lengkap' => 'required',
-            'NIK' => 'required|digits:16|unique:pegawai',
-            'email' => 'required|email|unique:pegawais',
-            'no_telepon' => 'required|digits:13',
-            'alamat' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'agama' => 'required',
-            'status_menikah' => 'required',
-            'status_kepegawaian' => 'required',
-            'pendidikan_terakhir' => 'required',
-            'nama_instansi' => 'required',
-            'jurusan' => 'required',
-            'tahun_lulus' => 'required|digits:4|digits:4',
-            'bergabung' => 'required',
-            'peran' => 'required',
-        ]);
+        // dd($request);
+        // validasi inputan
+        // $request->validate([
+        //     'nama_lengkap' => 'required',
+        //     'NIK' => 'required|digits:16|unique:pegawai',
+        //     'email' => 'required|email|unique:pegawais',
+        //     'no_telepon' => 'required|digits:13',
+        //     'alamat' => 'required',
+        //     'tempat_lahir' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'agama' => 'required',
+        //     'status_menikah' => 'required',
+        //     'status_kepegawaian' => 'required',
+        //     'pendidikan_terakhir' => 'required',
+        //     'nama_instansi' => 'required',
+        //     'jurusan' => 'required',
+        //     'tahun_lulus' => 'required|digits:4|digits:4',
+        //     'bergabung' => 'required',
+        //     'peran' => 'required',
+        // ]);
 
+        // cek apakah user menginputkan profike
         if ($request->hasFile('profile')) {
             $profileImage = $request->file('profile');
             $imageName = $request->NIK . '_' . $request->nama_lengkap . '.' . $profileImage->extension();
@@ -50,6 +56,7 @@ class PegawaiController extends Controller
             $imageName = null;
         }
 
+        // inputan user dimasukkan pada database
         $pegawai_baru = new Pegawai();
         $pegawai_baru->NIP = $request->NIP;
         $pegawai_baru->NIK = $request->NIK;
@@ -71,7 +78,7 @@ class PegawaiController extends Controller
         $pegawai_baru->bergabung = $request->bergabung;
         $pegawai_baru->peran = $request->peran;
 
-
+        // jika data baru berhasil ditambahkan, maka akan muncul pesan success, dan jika tidak akan muncul pesan error
         if ($pegawai_baru->save()) {
             return redirect(route('pegawai.index'))->with('success', 'Data berhasil disimpan!');
         } else {
@@ -79,6 +86,7 @@ class PegawaiController extends Controller
         }
     }
 
+    // menampilkan detail pegawai
     public function show($id) {
         $title = 'Data Pegawai';
         $sub_title = 'Detail Data';
@@ -86,6 +94,7 @@ class PegawaiController extends Controller
         return view('admin.pegawai.detail-data', compact('title', 'sub_title', 'detail_pegawai'));
     }
 
+    // menampilkan form edit data pegawai
     public function edit($id) {
         $title = 'Data Pegawai';
         $sub_title = 'Edit Data';
@@ -93,7 +102,9 @@ class PegawaiController extends Controller
         return view('admin.pegawai.edit-data', compact('title', 'sub_title', 'detail_pegawai'));
     }
 
+    // mengupdate data
     public function update(Request $request, $id) {
+        // validasi inputan
         $request->validate([
             'nama_lengkap' => 'required',
             'NIK' => 'required|digits:16|unique:pegawai',
@@ -147,7 +158,6 @@ class PegawaiController extends Controller
         $pegawai->bergabung = $request->bergabung;
         $pegawai->peran = $request->peran;
 
-
         if ($pegawai->save()) {
             return redirect(route('pegawai.index'))->with('success', 'Data berhasil diperbarui !');
         } else {
@@ -155,16 +165,19 @@ class PegawaiController extends Controller
         }
     }
 
+    // menghapus data pegawai
     public function destroy($id) {
         $pegawai = Pegawai::find($id);
+
+        // pengecekan gambar profile, jika ada gambar untuk profile maka profile akan dihapus terlebih dahulu
         if ($pegawai->profile) {
             $fotoPath = public_path('assets/img/profile-pegawai/' . $pegawai->profile);
-
             if (file_exists($fotoPath)) {
                 unlink($fotoPath);
             }
         }
 
+        // jika data berhasil di hapus, maka akan muncul pesan success, dan jika tidak akan muncul pesan error
         if ($pegawai->delete()){
             return redirect()->back()->with('success', 'Data berhasil dihapus!');
         } else {
