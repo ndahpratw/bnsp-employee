@@ -20,7 +20,7 @@
                     <div class="card-body pt-3">
                         <h4 class="mx-2 mt-2 my-1"> Form Edit Data Pegawai </h4>
                         <p class="text-danger mx-2"><span>*</span> : <b>wajib diisi</b></p>
-                        <form action="{{ route('pegawai.update', $detail_pegawai->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('pegawai.update', $detail_pegawai->id) }}" method="POST" enctype="multipart/form-data" id="form">
                             @csrf
                             @method('put')
 
@@ -285,5 +285,6 @@
     </section>
 @endsection
 @section('scripts')
-    <script src="{{ asset('js/profile.js') }}"></script>
+    <script src="{{ asset('assets/js/validation.js') }}"></script>
+    <script src="{{ asset('assets/js/profile.js') }}"></script>
 @endsection

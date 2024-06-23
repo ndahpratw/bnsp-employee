@@ -46,7 +46,13 @@
                                     <tr>
                                         <td> NIP </td>
                                         <td class="w-25 text-center"> : </td>
-                                        <td> {{ $detail_pegawai->NIP }} </td>
+                                        <td>
+                                            @if ( $detail_pegawai->NIP == null)
+                                              <i> belum memiliki NIP </i>  
+                                            @else
+                                                {{  $detail_pegawai->NIP }}
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td> Tempat Lahir </td>

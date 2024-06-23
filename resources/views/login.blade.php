@@ -6,7 +6,7 @@
     <title>Login - Bootstrap</title>
 
     <!-- Eksternal CSS -->
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
 
     <!-- Icons - Boxicon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -79,7 +79,7 @@
     </script>
 
     <!-- Eksternal JS -->
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Box Icon -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>

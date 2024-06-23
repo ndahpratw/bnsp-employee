@@ -232,7 +232,7 @@
                                 <p class="text-primary mt-5"> Informasi Lainnya </p>
                                 <div class="col-md-4 mt-2">
                                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror shadow-none" id="email" value="{{ old('email') }}" placeholder="Masukkan alamat email">
+                                    <input type="text" name="email" class="form-control @error('email') is-invalid @enderror shadow-none" id="email" value="{{ old('email') }}" placeholder="Masukkan alamat email">
                                     <p id="email_error" class="text-danger" ></p>
                                     @error('email') 
                                     <div class="invalid-feedback">
@@ -274,6 +274,6 @@
     </section>
 @endsection
 @section('scripts')
-    <script src="{{ asset('js/validation.js') }}"></script>
-    <script src="{{ asset('js/profile.js') }}"></script>
+    <script src="{{ asset('assets/js/validation.js') }}"></script>
+    <script src="{{ asset('assets/js/profile.js') }}"></script>
 @endsection

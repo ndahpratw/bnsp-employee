@@ -65,7 +65,13 @@
                                                 @endif
                                             </td>
                                             <td>{{ $item->nama_lengkap}}</td>
-                                            <td>{{ $item->NIP }}</td>
+                                            <td>
+                                                @if ($item->NIP == null)
+                                                    -
+                                                @else
+                                                   {{ $item->NIP }} 
+                                                @endif
+                                            </td>
                                             <td>
                                                 @if ($item->jenis_kelamin == 'L')
                                                     Laki - Laki
@@ -87,7 +93,7 @@
                                             <td>{{ $item->bergabung }}</td>
                                             <td>
                                                 <a href="{{ route('pegawai.edit', $item->id) }}" class="btn btn-primary btn-sm">
-                                                    <i class="ri-pencil-fill"></i>
+                                                    <i class="bi bi-pencil-fill"></i>
                                                 </a>
                                                 <a href="{{ route('pegawai.show', $item->id) }}" class="btn btn-info btn-sm">
                                                     <i class="bi bi-eye-fill"></i>
