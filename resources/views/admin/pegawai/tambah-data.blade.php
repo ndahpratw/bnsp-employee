@@ -274,6 +274,6 @@
     </section>
 @endsection
 @section('scripts')
-    <script src="{{ asset('assets/js/validation.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/validation.js') }}"></script> --}}
     <script src="{{ asset('assets/js/profile.js') }}"></script>
 @endsection
