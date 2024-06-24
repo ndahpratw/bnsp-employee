@@ -27,25 +27,25 @@ class PegawaiController extends Controller
     public function store(Request $request) {
         // dd($request);
         // validasi inputan
-        $request->validate([
-            'nama_lengkap' => 'required',
-            'NIK' => 'required|digits:16|unique:pegawai',
-            'email' => 'required|email|unique:pegawais',
-            'no_telepon' => 'required|digits:13',
-            'alamat' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'agama' => 'required',
-            'status_menikah' => 'required',
-            'status_kepegawaian' => 'required',
-            'pendidikan_terakhir' => 'required',
-            'nama_instansi' => 'required',
-            'jurusan' => 'required',
-            'tahun_lulus' => 'required|digits:4|digits:4',
-            'bergabung' => 'required',
-            'peran' => 'required',
-        ]);
+        // $request->validate([
+        //     'nama_lengkap' => 'required',
+        //     'NIK' => 'required|digits:16|unique:pegawai',
+        //     'email' => 'required|email|unique:pegawais',
+        //     'no_telepon' => 'required|digits:13',
+        //     'alamat' => 'required',
+        //     'tempat_lahir' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'agama' => 'required',
+        //     'status_menikah' => 'required',
+        //     'status_kepegawaian' => 'required',
+        //     'pendidikan_terakhir' => 'required',
+        //     'nama_instansi' => 'required',
+        //     'jurusan' => 'required',
+        //     'tahun_lulus' => 'required|digits:4|digits:4',
+        //     'bergabung' => 'required',
+        //     'peran' => 'required',
+        // ]);
 
         // cek apakah user menginputkan profike
         if ($request->hasFile('profile')) {
@@ -105,25 +105,25 @@ class PegawaiController extends Controller
     // mengupdate data
     public function update(Request $request, $id) {
         // validasi inputan
-        $request->validate([
-            'nama_lengkap' => 'required',
-            'NIK' => 'required|digits:16',
-            'email' => 'required|email',
-            'no_telepon' => 'required|digits:13',
-            'alamat' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'agama' => 'required',
-            'status_menikah' => 'required',
-            'status_kepegawaian' => 'required',
-            'pendidikan_terakhir' => 'required',
-            'nama_instansi' => 'required',
-            'jurusan' => 'required',
-            'tahun_lulus' => 'required|digits:4',
-            'bergabung' => 'required',
-            'peran' => 'required',
-        ]);
+        // $request->validate([
+        //     'nama_lengkap' => 'required',
+        //     'NIK' => 'required|digits:16',
+        //     'email' => 'required|email',
+        //     'no_telepon' => 'required|digits:13',
+        //     'alamat' => 'required',
+        //     'tempat_lahir' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'agama' => 'required',
+        //     'status_menikah' => 'required',
+        //     'status_kepegawaian' => 'required',
+        //     'pendidikan_terakhir' => 'required',
+        //     'nama_instansi' => 'required',
+        //     'jurusan' => 'required',
+        //     'tahun_lulus' => 'required|digits:4',
+        //     'bergabung' => 'required',
+        //     'peran' => 'required',
+        // ]);
 
         $pegawai = Pegawai::find($id);
 
